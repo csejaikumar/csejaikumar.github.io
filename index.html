@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Facebook Smooth jQuery POP OUT Likebox Widget Generator</title>
+<style type="text/css">
+.noop-field {
+    border: 1px solid #A8B5BF;
+    border-radius: 5px 5px 5px 5px;
+}
+.noopfieldtitle {
+    border: 1px dotted;
+    border-radius: 3px 3px 3px 3px;
+    padding: 2px 6px;
+}
+.noopbutton {
+    background: -moz-linear-gradient(center top , #F4F4F4 0%, #D8E1E7 100%) repeat scroll 0 0 transparent;
+        background-color:#F4F4F4;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(100%,#d8e1e7));
+background: -webkit-linear-gradient(top, #f4f4f4 0%,#d8e1e7 100%);
+background: -o-linear-gradient(top, #f4f4f4 0%,#d8e1e7 100%);
+background: -ms-linear-gradient(top, #f4f4f4 0%,#d8e1e7 100%);
+background: linear-gradient(top, #f4f4f4 0%,#d8e1e7 100%);
+    border: 1px solid #A8B5BF;
+    border-radius: 3px 3px 3px 3px;
+    cursor: pointer;
+    padding: 3px 14px;
+}
+.noopbutton:hover {
+    background: none repeat scroll 0 0 #D8E1E7;
+}
+#nooptxtarea {
+    border: 1px solid #7F9DB9;
+    border-radius: 3px 3px 3px 3px;
+        max-width: 97%;padding:4px;
+}
+.noopfburl {
+    border: 1px solid #7F9DB9;
+    border-radius: 2px 2px 2px 2px;
+    font-style: italic;
+    padding: 3px 1px;
+}.title {
+    background: -moz-linear-gradient(center top , #0090F7 0%, #1F5EA2 100%) repeat scroll 0 0 transparent;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0090f7), color-stop(100%,#1f5ea2));
+background: -webkit-linear-gradient(top, #0090f7 0%,#1f5ea2 100%);
+background: -o-linear-gradient(top, #0090f7 0%,#1f5ea2 100%);
+background: -ms-linear-gradient(top, #0090f7 0%,#1f5ea2 100%);
+background: linear-gradient(top, #0090f7 0%,#1f5ea2 100%);
+    border: 2px solid;
+    border-radius: 14px 14px 14px 14px;
+    color: #FFFFFF;
+    font: 21px arial,Sans MS;
+    padding: 4px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+}body {
+background: -moz-linear-gradient(-45deg, #FFFFFF 0%, #FFFFFF 20%, #FFFFFF 32%, #95C2E5 100%) no-repeat fixed 0 0 #DCF0FF;
+        background-color:#dcf0ff;
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffffff), color-stop(20%,#ffffff), color-stop(32%,#ffffff), color-stop(100%,#95c2e5));
+background: -webkit-linear-gradient(-45deg, #ffffff 0%,#ffffff 20%,#ffffff 32%,#95c2e5 100%);
+background: -o-linear-gradient(-45deg, #ffffff 0%,#ffffff 20%,#ffffff 32%,#95c2e5 100%);
+background: -ms-linear-gradient(-45deg, #ffffff 0%,#ffffff 20%,#ffffff 32%,#95c2e5 100%);
+background: linear-gradient(-45deg, #ffffff 0%,#ffffff 20%,#ffffff 32%,#95c2e5 100%);
+}
+</style>
+<script type="text/javascript">
+function noopselector() {
+/*alert("HHHHHHHHHHHHHHHHHHHHHHHHHH");*/
+/*var c=document.getElementsByName("nooptype");
+for(i=0;c.length;i++)
+{       if(c[i].checked)
+        {var x=c[i];
+        alert("You selected "+ x.value);
+        }
+}*/
+var txtarea=document.getElementsByName("nooptxtarea")[0];
+var fbid=document.getElementsByName("noopfburl")[0].value;
+var fburl="";
+var c=document.getElementsByName("nooptype");
+<!-- fb url -->
+if(c[0].checked)
+{fburl="http:\/\/2.bp.blogspot.com\/-V9m2YyhmdGA\/T0jC3jmhDlI\/AAAAAAAAAJo\/K67FFQge82Q\/s1600\/facebook_static+button-standard-netoopsblog.png";}
+else if(c[1].checked)
+{fburl="http:\/\/2.bp.blogspot.com\/-U-Tqo1012zI\/T0jC4dNlCSI\/AAAAAAAAAJw\/-U96ZzZhrp4\/s1600\/facebook_static+button2-netoopsblog.png";}
+else if(c[2].checked)
+{fburl="http:\/\/4.bp.blogspot.com\/-zNRniWJphn8\/T0jC5KwXwhI\/AAAAAAAAAJ4\/YFJcNdk9LzU\/s1600\/facebook_static+button3-netoopsblog.png";}
+else
+{fburl="http:\/\/3.bp.blogspot.com\/--YMTRGpGgko\/T0jC5zdicwI\/AAAAAAAAAJ8\/7eE40O9rc1Q\/s1600\/fb_static+button.png";}
+<!-- fb url -->
+txtarea.value="<!-- Fadu Hack Facebook Widget Start -->";
+txtarea.value+="<script type=\"text\/javascript\">\/*<![CDATA[*\/jQuery(document).ready(function() {jQuery(\".noopslikebox\").hover(function() {jQuery(this).stop().animate({right: \"0\"}, \"medium\");}, function() {jQuery(this).stop().animate({right: \"-250\"}, \"medium\");}, 500);});\/*]]>*\/<\/script>";
+txtarea.value+="<style type=\"text\/css\">.noopslikebox{background: url(\""+fburl;
+txtarea.value+="\") no-repeat scroll left center transparent !important;display: block;float: right;height: 270px;padding: 0 5px 0 42px;width: 245px;z-index: 9999999;position:fixed;right:-250px;top:20%;}.noopslikebox div{border:none;position:relative;display:block;}.noopslikebox span{bottom: 12px;font: 8px \"lucida grande\",tahoma,verdana,arial,sans-serif;position: absolute;right: 7px;text-align: right;z-index: 999;}.noopslikebox span a{color: gray;text-decoration:none;}.noopslikebox span a:hover{text-decoration:underline;}<\/style>";
+txtarea.value+="<div class=\"noopslikebox\"><div><iframe src=\"http:\/\/www.facebook.com\/plugins\/likebox.php?href="+fbid;
+txtarea.value+="&amp;width=245&amp;colorscheme=light&amp;show_faces=true&amp;connections=9&amp;stream=false&amp;header=false&amp;height=270\" scrolling=\"no\" frameborder=\"0\" scrolling=\"no\" style=\"border: medium none; overflow: hidden; height: 270px; width: 245px;background:#fff;\"><\/iframe><\/div><a href='http://faduhack1.blogspot.com'><img src='http://1.bp.blogspot.com/-RikrI-c_pyQ/T2DTcP6aMvI/AAAAAAAAAL0/H6v7PVoHM_w/s1600/1x1juice.png'/></a><\/div><!--Fadu Hack Blog Widgets@faduhack1.blogspot.com --><!-- Fadu Hack Facebook Widget End -->";
+/*
+document.getElementById("nooptxtarea").value+=noopwcontent;*/
+}
+</script>
+</head>
+
+<body>
+<h2 class="title">Facebook Smooth jQuery POP OUT Likebox Widget Generator</h2>
+<form action="post" name="form1">
+<fieldset class="noop-field"><legend class="noopfieldtitle">FB Style Selector</legend><table width="100%">
+<tr><td align="left" width="2%">
+<input checked="checked" id="nooptype" name="nooptype" type="radio" value="1" />
+</td>
+  <td width="4%"><img src="http://2.bp.blogspot.com/-V9m2YyhmdGA/T0jC3jmhDlI/AAAAAAAAAJo/K67FFQge82Q/s1600/facebook_static+button-standard-netoopsblog.png" /></td>
+  <td width="18%"> Facebook Standard Type</td>
+  <td width="4%">
+<input id="nooptype" name="nooptype" type="radio" value="2"/></td>
+        <td width="4%"><img src="http://2.bp.blogspot.com/-U-Tqo1012zI/T0jC4dNlCSI/AAAAAAAAAJw/-U96ZzZhrp4/s1600/facebook_static+button2-netoopsblog.png" /></td>
+        <td width="20%"> Facebook MusiQ Addict Type</td>
+<td width="2%">
+<input id="nooptype" name="nooptype" type="radio" value="3"/></td>
+        <td width="4%"><img src="http://4.bp.blogspot.com/-zNRniWJphn8/T0jC5KwXwhI/AAAAAAAAAJ4/YFJcNdk9LzU/s1600/facebook_static+button3-netoopsblog.png" /></td>
+        <td width="18%"> Facebook Modified Type</td>
+    <td width="4%">
+<input id="nooptype" name="nooptype" type="radio" value="3"/></td>
+<td width="4%"><img src="http://3.bp.blogspot.com/--YMTRGpGgko/T0jC5zdicwI/AAAAAAAAAJ8/7eE40O9rc1Q/s1600/fb_static+button.png" /></td>
+        <td width="25%"> Facebook Zebra Stylish Type</td> 
+</tr>
+</table>
+</fieldset>
+
+<fieldset class="noop-field" style="margin-top:10px;"><legend class="noopfieldtitle">FaceBook URL/username</legend>
+<table width="100%"><tr><td width="16%"><label>Enter Facebook URL</label></td><td width="83%"><input value="http://www.facebook.com/FaduHack" onclick="select()" class="noopfburl" type="text" name="noopfburl" size="50" /></td></tr></table>
+
+</fieldset><center>
+<input type="button" onclick="noopselector()" class="noopbutton" align="middle" style="margin-top:10px;" value="Generate Code"/>
+<br />
+<textarea onfocus="select();" id="nooptxtarea" name="nooptxtarea" style="margin-top:5px;width:100%;height:300px;"></textarea></center>
+</form>
+  <center>Copyright © 2012 by jai @ <a href="http://faduhack.com" rel="dofollow">Fadu Hack Blog</a>.All Rights Reserved</center>
+</body>
+</html>
